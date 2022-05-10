@@ -146,6 +146,59 @@ Install Android Studio (do not use `brew install android-sdk`, since it has been
 brew install android-studio
 ```
 
+Then start Android Studio and you should see the Wizard waiting. Here choose the standard installation and the `Android SDK` and other needed tools for Flutter will be downloaded for you.
+
+### Run a final flutter doctor
+
+Now running `flutter doctor` there should only the Android SDKs commandline tools should be missing:
+
+```shell
+$ flutter doctor
+Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel stable, 2.10.5, on macOS 11.6.5 20G527 darwin-x64, locale de-DE)
+[!] Android toolchain - develop for Android devices (Android SDK version 32.1.0-rc1)
+    ✗ cmdline-tools component is missing
+      Run `path/to/sdkmanager --install "cmdline-tools;latest"`
+      See https://developer.android.com/studio/command-line for more details.
+    ✗ Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/docs/get-started/install/macos#android-setup for more details.
+[✓] Xcode - develop for iOS and macOS (Xcode 13.2.1)
+[✓] Chrome - develop for the web
+[✓] Android Studio (version 2021.2)
+[✓] IntelliJ IDEA Ultimate Edition (version 2021.2.2)
+[✓] VS Code (version 1.62.0)
+[✓] Connected device (2 available)
+    ! Error: Failed to prepare device for development. Please unlock and reconnect the device. (code 806)
+[✓] HTTP Host Availability
+```
+
+Install the Android SDKs command line tools via Android Studio (the described way in the docs is not working! https://developer.android.com/studio/command-line):
+
+What works: Open Android Studio and create a sample project. Go to Preferences and __Appeareance & Behavior / System Settings / Android SDK__ and check the box __Android SDK Command-line Tools__:
+
+![android-studio-android-sdk-command-line-tools](screenshots/android-studio-android-sdk-command-line-tools.png)
+
+And finally run `flutter doctor --android-licenses` to accept the SDK licenses.
+
+Now another `flutter doctor` should give you everything green:
+
+```
+$ flutter doctor
+Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel stable, 2.10.5, on macOS 11.6.5 20G527 darwin-x64, locale de-DE)
+[✓] Android toolchain - develop for Android devices (Android SDK version 32.1.0-rc1)
+[✓] Xcode - develop for iOS and macOS (Xcode 13.2.1)
+[✓] Chrome - develop for the web
+[✓] Android Studio (version 2021.2)
+[✓] IntelliJ IDEA Ultimate Edition (version 2021.2.2)
+[✓] VS Code (version 1.62.0)
+[✓] Connected device (2 available)
+    ! Error: Failed to prepare device for development. Please unlock and reconnect the device. (code 806)
+[✓] HTTP Host Availability
+
+• No issues found!
+```
 
 
 ## Start with Flutter
