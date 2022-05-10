@@ -115,11 +115,24 @@ For iOS development we need XCode to be installed (e.g. via the Mac App Store).
 sudo gem install cocoapods
 ```
 
-If that does fail with `The compiler failed to generate an executable file. (RuntimeError) You have to install development tools first.`, you need to run (see https://stackoverflow.com/a/57217502/4964553)
+If that does fail with 
+```
+The compiler failed to generate an executable file. (RuntimeError) You have to install development tools first.
+```
+
+you should know that https://stackoverflow.com/a/65481787/4964553
+
+> Recent versions of macOS and Xcode (e.g. Catalina, Big Sur and so on) definitely have this broken.
+
+Therefore follow the so answer. On my BigSur this was what made the `cocoapods` installation work
 
 ```
-xcode-select --install
+cd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0/ruby/
+sudo ln -sf ../../../../Headers/ruby/config.h
+cd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/include/ruby-2.6.0
+sudo ln -sf universal-darwin21 universal-darwin20
 ```
+
 
 
 
