@@ -1,4 +1,7 @@
 # how-to-flutter
+[![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/jonashackt/how-to-flutter/blob/master/LICENSE)
+[![renovateenabled](https://img.shields.io/badge/renovate-enabled-yellow)](https://renovatebot.com)
+
 A backend engineer looking into cross-plattform mobile development
 
 
