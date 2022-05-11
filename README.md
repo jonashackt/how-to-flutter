@@ -243,7 +243,7 @@ Doctor summary (to see all details, run flutter doctor -v):
 ```
 
 
-## Start with Flutter
+## Start with Flutter development
 
 Now let's dive into building our first app.
 
@@ -295,3 +295,33 @@ flutter run
 Now your app should run inside the simulator:
 
 ![frist-hello-world-app-run-simulator](screenshots/frist-hello-world-app-run-simulator.png)
+
+### Install Dart and Flutter Plugins in IntelliJ & configure correct SDK paths
+
+You can choose any IDE you want (e.g. Android Studio, VSCode etc.). I went with IntelliJ and there are some plugins you should install first, which will assist you in Flutter/Dart development:
+
+* the official Dart plugin https://plugins.jetbrains.com/plugin/6351-dart
+* the Flutter plugin https://plugins.jetbrains.com/plugin/9212-flutter
+
+In both plugins you need to configure the correct Dart and Flutter SDK paths in order to make them work.
+
+If you use `brew install dart` for the Dart installation, the path for me was 
+
+```
+/usr/local/Cellar/dart/2.16.2/libexec
+```
+
+![intellij-dart-plugin](screenshots/intellij-dart-plugin.png)
+
+For Flutter using `brew install flutter` the path was: 
+
+```
+/usr/local/Caskroom/flutter/2.10.5/flutter
+```
+
+![intellij-flutter-plugin](screenshots/intellij-flutter-plugin.png)
+
+
+If you installed both plugins correctly, you might need to remove the `.iml` file and import the project as a new one again (at least that fixed project view for me). Now your IntelliJ has everything ready for Flutter development - including autocompletion like typing `stful` to generate a `StatefulWidget`:
+
+![intellij-working-autocompletion-flutter](screenshots/intellij-working-autocompletion-flutter.png)
