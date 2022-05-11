@@ -245,11 +245,13 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 ## Start with Flutter development
 
-Now let's dive into building our first app.
+Now let's dive into building our first app. There's a really nice codelab to quickstart your Flutter development skills: 
 
 https://codelabs.developers.google.com/codelabs/first-flutter-app-pt1/#0
 
-Create a Flutter app template with
+and later also https://codelabs.developers.google.com/codelabs/first-flutter-app-pt2/#0
+
+Start by creating a Flutter app template with
 
 ```shell
 flutter create how_to_flutter
