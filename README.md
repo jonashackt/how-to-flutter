@@ -327,3 +327,34 @@ For Flutter using `brew install flutter` the path was:
 If you installed both plugins correctly, you might need to remove the `.iml` file and import the project as a new one again (at least that fixed project view for me). Now your IntelliJ has everything ready for Flutter development - including autocompletion like typing `stful` to generate a `StatefulWidget`:
 
 ![intellij-working-autocompletion-flutter](screenshots/intellij-working-autocompletion-flutter.png)
+
+
+## Debugging Flutter apps from within IntelliJ
+
+https://docs.flutter.dev/development/tools/devtools/android-studio
+
+As described in [this blog post](https://dhanushkac.medium.com/how-to-fix-cannot-find-runner-for-main-dart-with-flutter-in-intellij-88789e8eefaa) be sure to have the Flutter IntelliJ plugin's Flutter SDK path configured correctly (as described in the section above).
+
+Then in IntelliJ you should also be able to see your device:
+
+![intellij-flutter-plugin-sdk-configured-device-showing](screenshots/intellij-flutter-plugin-sdk-configured-device-showing.png)
+
+Now you should also be able to __Run__ or __Debug__ your app from within IntelliJ.
+
+This also allows e.g. for side-by-side development possibilities:
+
+![intellij-simulator-side-by-side](screenshots/intellij-simulator-side-by-side.png)
+
+
+To access the [Flutter DevTools](https://docs.flutter.dev/development/tools/devtools/overview) simply click on the Button after running the app:
+
+![intellij-start-devtools](screenshots/intellij-start-devtools.png)
+
+Now the DevTools should open in your Browser:
+
+![flutter-dev-tools](screenshots/flutter-dev-tools.png)
+
+
+# Links and Ideas
+
+Debugging Flutter layouts visually: https://docs.flutter.dev/development/tools/devtools/inspector#debugging-layout-issues-visually
