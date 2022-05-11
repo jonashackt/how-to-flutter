@@ -133,6 +133,49 @@ cd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Develope
 sudo ln -sf universal-darwin21 universal-darwin20
 ```
 
+#### Xcode signing flow
+
+Run the following in the root of the project:
+
+```
+open ios/Runner.xcworkspace
+```
+
+This should fire up Xcode using our Flutter generated project:
+
+![xcode-started-in-flutter-project](screenshots/xcode-started-in-flutter-project.png)
+
+Now select a __Team__ using __Add Account...__ under __Signing & Capabilities__ inside the __Runner__ configuration.
+
+![xcode-team-chosen](screenshots/xcode-team-chosen.png)
+
+You definitely need to trust the new Xcode generated developer certificate on your iPhone (sorry, I only have a german iOS here): 
+
+> go to the Settings app on the iOS device, select General > Device Management and trust your Certificate. For first time users, you may need to select General > Profiles > Device Management instead.
+
+![iphone-trust-dev-cert-flow](screenshots/iphone-trust-dev-cert-flow.png)
+
+For more details have a look at https://docs.flutter.dev/get-started/install/macos#deploy-to-ios-devices
+
+> Development and testing is supported for any Apple ID. Enrolling in the Apple Developer Program is required to distribute your app to the App Store (see https://developer.apple.com/support/compare-memberships)
+
+
+Now click onto the run icon in Xcode or execute `flutter run` on command line. Your app should be started on your iPhone! :)
+
+If you experience `iproxy` beeing blocked on your Mac like this:
+
+![flutter-iproxy-blocked-macos](screenshots/flutter-iproxy-blocked-macos.png)
+
+run the following (see https://stackoverflow.com/a/71359133/4964553):
+
+```shell
+# look where flutter sdk is located - if you used brew that is
+/usr/local/Caskroom/flutter/2.10.5/flutter/bin/
+# then cd to flutter-sdk-path/bin/cache/artifacts/usbmuxd
+cd /usr/local/Caskroom/flutter/2.10.5/flutter/bin/cache/artifacts/usbmuxd
+# deactivate MacOS blocking for iproxy
+sudo xattr -d com.apple.quarantine iproxy
+```
 
 
 
@@ -194,7 +237,6 @@ Doctor summary (to see all details, run flutter doctor -v):
 [✓] IntelliJ IDEA Ultimate Edition (version 2021.2.2)
 [✓] VS Code (version 1.62.0)
 [✓] Connected device (2 available)
-    ! Error: Failed to prepare device for development. Please unlock and reconnect the device. (code 806)
 [✓] HTTP Host Availability
 
 • No issues found!
