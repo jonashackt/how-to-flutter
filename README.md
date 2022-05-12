@@ -1,4 +1,5 @@
 # how-to-flutter
+[![Build Status](https://github.com/jonashackt/how-to-flutter/workflows/flutter-build/badge.svg)](https://github.com/jonashackt/how-to-flutter/actions)
 [![License](http://img.shields.io/:license-mit-blue.svg)](https://github.com/jonashackt/how-to-flutter/blob/master/LICENSE)
 [![renovateenabled](https://img.shields.io/badge/renovate-enabled-yellow)](https://renovatebot.com)
 
@@ -363,8 +364,11 @@ https://blog.codecentric.de/en/2018/10/is-flutter-ready-for-production-apps-in-q
 
 https://docs.flutter.dev/whats-new#may-11-2022-google-io-edition-flutter-3-release
 
-Debugging Flutter layouts visually: https://docs.flutter.dev/development/tools/devtools/inspector#debugging-layout-issues-visually
+https://medium.com/flutter/introducing-flutter-3-5eb69151622f
 
+
+
+https://docs.flutter.dev/resources/faq#why-did-flutter-choose-to-use-dart
 
 ### Learn
 
@@ -377,3 +381,17 @@ https://docs.flutter.dev/development/packages-and-plugins/happy-paths
 https://codelabs.developers.google.com/codelabs/flutter-boring-to-beautiful#0
 
 https://docs.flutter.dev/cookbook
+
+https://docs.flutter.dev/resources/bootstrap-into-dart
+
+https://developers.google.com/codelabs/from-java-to-dart#0
+
+#### Layout tutorials:
+
+https://docs.flutter.dev/development/ui/layout
+ 
+https://docs.flutter.dev/development/ui/layout/tutorial
+
+https://docs.flutter.dev/development/ui/interactive
+
+Debugging Flutter layouts visually: https://docs.flutter.dev/development/tools/devtools/inspector#debugging-layout-issues-visually
