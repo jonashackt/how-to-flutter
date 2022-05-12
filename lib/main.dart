@@ -57,31 +57,30 @@ class _RandomWordsState extends State<RandomWords> {
       body: ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (BuildContext context, int itemBuilderIndex) {
-          return buildListItem(itemBuilderIndex);
+          if (itemBuilderIndex.isOdd) return const Divider();
+
+          final suggestionsIndex = itemBuilderIndex ~/ 2;
+          if(suggestionsIndex >= _suggestions.length) {
+            _suggestions.addAll(generateWordPairs().take(10));
+          }
+
+          final alreadySaved = _saved.contains(_suggestions[suggestionsIndex]);
+
+          return buildListTile(suggestionsIndex, alreadySaved);
         },
         //separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
     );
   }
 
-  StatelessWidget buildListItem(int itemBuilderIndex) {
-
-    if (itemBuilderIndex.isOdd) return const Divider();
-
-    final suggestionsIndex = itemBuilderIndex ~/ 2;
-    if(suggestionsIndex >= _suggestions.length) {
-      _suggestions.addAll(generateWordPairs().take(10));
-    }
-
-    final alreadySaved = _saved.contains(_suggestions[suggestionsIndex]);
-
+  ListTile buildListTile(int suggestionsIndex, bool alreadySaved) {
     return ListTile(
       title: Text(
         _suggestions[suggestionsIndex].asPascalCase,
         style: _biggerFont,
       ),
       trailing: Icon(
-        alreadySaved ? Icons.favorite : Icons.favorite_border,
+        alreadySaved ? Icons.add_circle : Icons.add_circle_outline,
         color: alreadySaved ? Colors.red : null,
         semanticLabel: alreadySaved ? 'Remove from saved' : 'Save me',
       ),
@@ -93,8 +92,8 @@ class _RandomWordsState extends State<RandomWords> {
             _saved.add(_suggestions[suggestionsIndex]);
           }
         });
-      },
-    );
+    },
+  );
   }
 
   void _pushSaved() {

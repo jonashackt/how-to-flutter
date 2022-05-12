@@ -303,7 +303,7 @@ Now your app should run inside the simulator:
 You can choose any IDE you want (e.g. Android Studio, VSCode etc.). I went with IntelliJ and there are some plugins you should install first, which will assist you in Flutter/Dart development:
 
 * the official Dart plugin https://plugins.jetbrains.com/plugin/6351-dart
-* the Flutter plugin https://plugins.jetbrains.com/plugin/9212-flutter
+* the Flutter plugin https://plugins.jetbrains.com/plugin/9212-flutter (and https://github.com/flutter/flutter-intellij)
 
 In both plugins you need to configure the correct Dart and Flutter SDK paths in order to make them work.
 
@@ -357,4 +357,23 @@ Now the DevTools should open in your Browser:
 
 # Links and Ideas
 
+https://blog.codecentric.de/en/2019/03/flutter-new-mobile-promise/
+
+https://blog.codecentric.de/en/2018/10/is-flutter-ready-for-production-apps-in-q4-2018/
+
+https://docs.flutter.dev/whats-new#may-11-2022-google-io-edition-flutter-3-release
+
 Debugging Flutter layouts visually: https://docs.flutter.dev/development/tools/devtools/inspector#debugging-layout-issues-visually
+
+
+### Learn
+
+https://codelabs.developers.google.com/?text=flutter
+
+https://codelabs.developers.google.com/codelabs/first-flutter-app-pt2/#0
+
+https://docs.flutter.dev/development/packages-and-plugins/happy-paths
+
+https://codelabs.developers.google.com/codelabs/flutter-boring-to-beautiful#0
+
+https://docs.flutter.dev/cookbook
