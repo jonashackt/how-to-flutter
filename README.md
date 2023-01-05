@@ -34,7 +34,7 @@ When to Use Flutter
 
 https://flutter.dev is based on Google's https://dart.dev programming language, which is focussed to be a `a client-optimized language for fast apps on any platform` - sounds good, although I need to learn a new language.
 
-Dart is compiled to ARM & x64 machine code for mobile, desktop, and backend. Or compiled to JavaScript for the web. It also uses AOT-compilation for performance and should be much faster then React Native, since there's no separate thread using JavaScript anymore. Everything is compiled to native!
+Dart is compiled to ARM & x64 machine code for mobile, desktop, and backend. Or compiled to JavaScript for the web. It also uses AOT-compilation for performance and should be much faster than React Native, since there's no separate thread using JavaScript anymore. **Everything is compiled to native!**
 
 Sounds really nice, so let's get our hands dirty: https://flutter.dev/learn
 
@@ -192,7 +192,7 @@ brew install android-studio
 
 Then start Android Studio and you should see the Wizard waiting. Here choose the standard installation and the `Android SDK` and other needed tools for Flutter will be downloaded for you.
 
-### Run a final flutter doctor
+### Run another flutter doctor
 
 Now running `flutter doctor` there should only the Android SDKs commandline tools should be missing:
 
@@ -243,6 +243,22 @@ Doctor summary (to see all details, run flutter doctor -v):
 • No issues found!
 ```
 
+### Setup the Android emulator
+
+Just as we did with the iOS simulator, we'd also like to use the Android emulator (as [the docs state](https://docs.flutter.dev/get-started/install/macos#set-up-the-android-emulator)).
+
+tbd
+
+
+### Setup your Android phone for Flutter development
+
+https://developer.android.com/studio/run/device
+
+If you want to use your Android device and run your developed app, you first need to enable the developer options first by clicking on the build number 7 times (the build number [is mostly located](https://developer.android.com/studio/debug/dev-options) inside the `about phone` tab inside your `Settings` menu).
+
+Now head over to the `Developer options` menu now showing up under `Settings` and enable `USB debbugging`. On a Mac now everything should be set up (see [other OSes in the docs](https://developer.android.com/studio/run/device)).
+
+Connected with an USB cable you can now run your app on the Android device from within IntelliJ/Android Studio or by running `flutter run` in the root directory of your project. 
 
 ## Start with Flutter development
 
