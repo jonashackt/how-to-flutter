@@ -34,7 +34,7 @@ When to Use Flutter
 
 https://flutter.dev is based on Google's https://dart.dev programming language, which is focussed to be a `a client-optimized language for fast apps on any platform` - sounds good, although I need to learn a new language.
 
-Dart is compiled to ARM & x64 machine code for mobile, desktop, and backend. Or compile to JavaScript for the web. It also uses AOT-compilation for performance and should be much faster then React Native, since there's no separate thread using JavaScript anymore. Everything is compiled to native!
+Dart is compiled to ARM & x64 machine code for mobile, desktop, and backend. Or compiled to JavaScript for the web. It also uses AOT-compilation for performance and should be much faster then React Native, since there's no separate thread using JavaScript anymore. Everything is compiled to native!
 
 Sounds really nice, so let's get our hands dirty: https://flutter.dev/learn
 
