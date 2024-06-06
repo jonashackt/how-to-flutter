@@ -48,19 +48,47 @@ This is mainly to have a Dart SDK available in IntelliJ (which we might also hav
 https://dart.dev/get-dart
 
 ```shell
+# MacOS homebrew
 brew tap dart-lang/dart
 brew install dart
+
+# Linux Manjaro
+pamac install dart
 ```
 
 ### Install Flutter SDK
 
 https://docs.flutter.dev/get-started/install/macos
 
-On a mac we can install Flutter using brew:
+On a Mac we can install Flutter using brew:
 
 ```shell
 brew install flutter
 ```
+
+On Manjaro Linux or Arch things get maybe a bit more complicated. Running `pamac install flutter` produced a
+
+```shell
+Error: Failed to prepare transaction:
+could not satisfy dependencies:
+- unable to satisfy dependency 'flutter-engine-linux=3.22.1' required by flutter-target-linux
+- unable to satisfy dependency 'flutter-target-linux=3.22.1' required by flutter
+- unable to satisfy dependency 'flutter-engine-android=3.22.1' required by flutter-target-android
+- unable to satisfy dependency 'flutter-target-android=3.22.1' required by flutter
+- unable to satisfy dependency 'flutter-engine-web=3.22.1' required by flutter-target-web
+- unable to satisfy dependency 'flutter-target-web=3.22.1' required by flutter
+```
+
+But reading through some comments on https://aur.archlinux.org/packages/flutter it turned out that the dependency structure of the complex flutter package changed recently and thus it will help to build the depending packages yourself:
+
+```shell
+pamac build flutter-engine-linux flutter-target-linux flutter-engine-android flutter-target-android flutter-engine-web flutter-target-web
+
+pamac build flutter
+```
+
+The command `flutter install` didn't work for me at all. See https://forum.manjaro.org/t/difference-between-pamac-install-and-pamac-build/116712 for the differences between `pamac install` and `pamac build`.
+
 
 You can grab yourself a coffee now - this may take a while (2.8 gigs).
 
@@ -186,8 +214,12 @@ https://docs.flutter.dev/get-started/install/macos#android-setup
 
 Install Android Studio (do not use `brew install android-sdk`, since it has been officially discontinued upstream)
 
-```
+```shell
+# MacOS 
 brew install android-studio
+
+# Manjaro Linux
+pamac install android-studio
 ```
 
 Then start Android Studio and you should see the Wizard waiting. Here choose the standard installation and the `Android SDK` and other needed tools for Flutter will be downloaded for you.
@@ -219,9 +251,11 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 Install the Android SDKs command line tools via Android Studio (the described way in the docs is not working! https://developer.android.com/studio/command-line):
 
-What works: Open Android Studio and create a sample project. Go to Preferences and __Appeareance & Behavior / System Settings / Android SDK__ and check the box __Android SDK Command-line Tools__:
+What works: Open Android Studio and create a sample project. Go to Preferences and __Languages & Frameworks / Android SDK__ and check the box __Android SDK Command-line Tools__:
 
 ![android-studio-android-sdk-command-line-tools](screenshots/android-studio-android-sdk-command-line-tools.png)
+
+The Android Command Line Tools should now be downloaded.
 
 And finally run `flutter doctor --android-licenses` to accept the SDK licenses.
 
@@ -242,6 +276,23 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 • No issues found!
 ```
+
+Only if Chrome isn't found and you're using Chromium:
+
+```shell
+$ flutter doctor
+...
+[✗] Chrome - develop for the web (Cannot find Chrome executable at google-chrome)
+    ! Cannot find Chrome. Try setting CHROME_EXECUTABLE to a Chrome executable.
+```
+
+you need to edit your `~/.zshrc` or `~/.bashrc` and [add the `CHROME_EXECUTABLE` env var](https://stackoverflow.com/questions/70277511/how-to-execute-flutter-app-in-chromium-browser-on-linux):
+
+```shell
+### Flutter Chrome configuration to use Chromium
+export CHROME_EXECUTABLE="/bin/chromium"
+```
+
 
 ### Setup the Android emulator
 
